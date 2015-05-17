@@ -1,0 +1,354 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>gp by lawrennd</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>gp</h1>
+        <p>Gaussian process software in MATLAB.</p>
+
+        <p class="view"><a href="https://github.com/lawrennd/gp">View the Project on GitHub <small>lawrennd/gp</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/lawrennd/gp/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/lawrennd/gp/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/lawrennd/gp">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="gaussian-process-software" class="anchor" href="#gaussian-process-software" aria-hidden="true"><span class="octicon octicon-link"></span></a>Gaussian Process Software</h1>
+
+<p>This page describes examples of how to use the Gaussian Process Software (GP).</p>
+
+<h2>
+<a id="release-information" class="anchor" href="#release-information" aria-hidden="true"><span class="octicon octicon-link"></span></a>Release Information</h2>
+
+<p><strong>Current release is 0.137</strong>.</p>
+
+<p>As well as downloading the GP software you need to obtain the toolboxes specified below. </p>
+
+<table>
+<thead>
+<tr>
+<th><strong>Toolbox</strong></th>
+<th><strong>Version</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="/netlab/downloadFiles/vrs3p3">NETLAB</a></td>
+<td>3.3</td>
+</tr>
+<tr>
+<td><a href="/mocap/downloadFiles/vrs0p136">MOCAP</a></td>
+<td>0.136</td>
+</tr>
+<tr>
+<td><a href="/ndlutil/downloadFiles/vrs0p162">NDLUTIL</a></td>
+<td>0.162</td>
+</tr>
+<tr>
+<td><a href="/prior/downloadFiles/vrs0p22">PRIOR</a></td>
+<td>0.22</td>
+</tr>
+<tr>
+<td><a href="/mltools/downloadFiles/vrs0p138">MLTOOLS</a></td>
+<td>0.138</td>
+</tr>
+<tr>
+<td><a href="/mocap/downloadFiles/vrs0p136">MOCAP</a></td>
+<td>0.136</td>
+</tr>
+<tr>
+<td><a href="/optimi/downloadFiles/vrs0p132">OPTIMI</a></td>
+<td>0.132</td>
+</tr>
+<tr>
+<td><a href="/datasets/downloadFiles/vrs0p1371">DATASETS</a></td>
+<td>0.1371</td>
+</tr>
+<tr>
+<td><a href="/kern/downloadFiles/vrs0p226">KERN</a></td>
+<td>0.226</td>
+</tr>
+<tr>
+<td><a href="/noise/downloadFiles/vrs0p141">NOISE</a></td>
+<td>0.141</td>
+</tr>
+</tbody>
+</table>
+
+<p>Minor updates to gpLoadResult for allowing different functions for loading in data.</p>
+
+<h4>
+<a id="version-0136" class="anchor" href="#version-0136" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 0.136</h4>
+
+<p>Changes to gpReadFromFID for compatibility with C++ code.</p>
+
+<h4>
+<a id="version-0135" class="anchor" href="#version-0135" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 0.135</h4>
+
+<p>Modifications by Carl Henrik Ek for compatability with the SGPLVM toolbox.</p>
+
+<h4>
+<a id="version-0134" class="anchor" href="#version-0134" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 0.134</h4>
+
+<p>Updates to allow deconstruction of model files when writing to disk (gpWriteResult, gpLoadResult, gpDeconstruct, gpReconstruct).</p>
+
+<h4>
+<a id="version-0133" class="anchor" href="#version-0133" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 0.133</h4>
+
+<p>Updates for running a GPLVM/GP using the data's inner product matrix for Interspeech synthesis demos.</p>
+
+<h4>
+<a id="version-0132" class="anchor" href="#version-0132" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 0.132</h4>
+
+<p>Examples transfered from oxford toolbox, variational approximation from Titsias added as an option with 'dtcvar'.</p>
+
+<h4>
+<a id="version-0131" class="anchor" href="#version-0131" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 0.131</h4>
+
+<p>Changes to allow compatibility with SGPLVM and NCCA toolboxes.</p>
+
+<h4>
+<a id="version-013" class="anchor" href="#version-013" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 0.13</h4>
+
+<p>Changes to allow more flexibility in optimisation of beta.</p>
+
+<h4>
+<a id="version-012" class="anchor" href="#version-012" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 0.12</h4>
+
+<p>Various minor changes for enabling back constraints in hierarchical GP-LVM models.</p>
+
+<h4>
+<a id="version-011" class="anchor" href="#version-011" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 0.11</h4>
+
+<p>Changes include the use of the optimiDefaultConstraint('positive') to obtain the function to constrain beta to be positive (which now returns 'exp' rather than 'negLogLogit' which was previously the default). Similarly default optimiser is now given by a command in optimiDefaultOptimiser.</p>
+
+<h4>
+<a id="version-01" class="anchor" href="#version-01" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 0.1</h4>
+
+<p>The first version which is spun out of the FGPLVM toolbox. The corresponding FGPLVM toolbox is 0.15.</p>
+
+<p>Release 0.1 splits away the Gaussian process section of the FGPLVM toolbox into this separate toolbox.</p>
+
+<h2>
+<a id="other-gp-related-software" class="anchor" href="#other-gp-related-software" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other GP related software</h2>
+
+<p>The GP-LVM C++ software is available from <a href="/gplvmcpp/">here</a>.</p>
+
+<p>The IVM C++ software is available from <a href="/ivmcpp/">here</a>.</p>
+
+<p>The MATLAB IVM toolbox is available here <a href="/ivm/">here</a>.</p>
+
+<p>The original MATLAB GP-LVM toolbox is available here <a href="/gplvm/">here</a>.</p>
+
+<h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h2>
+
+<h3>
+<a id="functions-from-gaussians" class="anchor" href="#functions-from-gaussians" aria-hidden="true"><span class="octicon octicon-link"></span></a>Functions from Gaussians</h3>
+
+<p>This example shows how points which look like they come from a function to be sampled from a Gaussian distribution. The sample is 25 dimensional and is from a Gaussian with a particular covariance.</p>
+
+<div class="highlight highlight-matlab"><pre><span class="pl-k">&gt;&gt; </span>demGpSample</pre></div>
+
+<p><img src="gpSample.png" alt=""><img src="gpCovariance.png" alt=""></p>
+
+<p><em>Left</em> A single, 25 dimensional, sample from a Gaussian distribution. <em>Right</em> the covariance matrix of the Gaussian distribution..</p>
+
+<h3>
+<a id="joint-distribution-over-two-variables" class="anchor" href="#joint-distribution-over-two-variables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Joint Distribution over two Variables</h3>
+
+<p>Gaussian processes are about conditioning a Gaussian distribution on the training data to make the test predictions. To illustrate this process, we can look at the joint distribution over two variables.</p>
+
+<div class="highlight highlight-matlab"><pre><span class="pl-k">&gt;&gt; </span>demGpCov2D([<span class="pl-c1">1</span> <span class="pl-c1">2</span>])</pre></div>
+
+<p>Gives the joint distribution for <em>f</em><sub>1</sub> and <em>f</em><sub>2</sub>. The plots show the joint distributions as well as the conditional for <em>f</em><sub>2</sub> given <em>f</em><sub>1</sub>.</p>
+
+<p><img src="demGpCov2D1_2_3.png" alt=""><img src="demGpCov2D1_5_3.png" alt=""></p>
+
+<p><em>Left</em> Blue line is contour of joint distribution over the variables <em>f</em><sub>1</sub> and <em>f</em><sub>2</sub>. Green line indicates an observation of <em>f</em><sub>1</sub>. Red line is conditional distribution of <em>f</em><sub>2</sub> given <em>f</em><sub>1</sub>. <em>Right</em> Similar for <em>f</em><sub>1</sub> and <em>f</em><sub>5</sub>.</p>
+
+<h3>
+<a id="different-samples-from-gaussian-processes" class="anchor" href="#different-samples-from-gaussian-processes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Different Samples from Gaussian Processes</h3>
+
+<p>A script is provided which samples from a Gaussian process with the provided covariance function.</p>
+
+<div class="highlight highlight-matlab"><pre><span class="pl-k">&gt;&gt; </span>gpSample(<span class="pl-s"><span class="pl-pds">'</span>rbf<span class="pl-pds">'</span></span>, <span class="pl-c1">10</span>, [<span class="pl-c1">1</span> <span class="pl-c1">1</span>], [<span class="pl-k">-</span><span class="pl-c1">3</span> <span class="pl-c1">3</span>], <span class="pl-c1">1e5</span>)</pre></div>
+
+<p>will give 10 samples from an RBF covariance function with a parameter vector given by <a href="inverse%20width%201,%20variance%201">1 1</a> across the range -3 to 3 on the <em>x</em>-axis. The random seed will be set to 1e5.</p>
+
+<pre><code>&gt;&gt; gpSample('rbf', 10, [16 1], [-3 3], 1e5)
+</code></pre>
+
+<p>is similar, but the inverse width is now set to 16 (length scale 0.25).</p>
+
+<p><img src="gpSampleRbfSamples10Seed100000InverseWidth1Variance1.png" alt=""><img src="gpSampleRbfSamples10Seed100000InverseWidth16Variance1.png" alt=""></p>
+
+<p><em>Left</em> samples from an RBF style covariance function with length scale 1. <em>Right</em> samples from an RBF style covariance function with length scale 0.25.
+Other covariance functions can be sampled, an interesting one is the MLP covariance which is non stationary and can produce point symmetric functions,</p>
+
+<div class="highlight highlight-matlab"><pre><span class="pl-k">&gt;&gt; </span>gpSample(<span class="pl-s"><span class="pl-pds">'</span>mlp<span class="pl-pds">'</span></span>, <span class="pl-c1">10</span>, [<span class="pl-c1">100</span> <span class="pl-c1">100</span> <span class="pl-c1">1</span>], [<span class="pl-k">-</span><span class="pl-c1">1</span> <span class="pl-c1">1</span>], <span class="pl-c1">1e5</span>)</pre></div>
+
+<p>gives 10 samples from the MLP covariance function where the "bias variance" is 100 (basis functions are centered around the origin with standard deviation of 10) and the "weight variance" is 100.</p>
+
+<div class="highlight highlight-matlab"><pre><span class="pl-k">&gt;&gt; </span>gpSample(<span class="pl-s"><span class="pl-pds">'</span>mlp<span class="pl-pds">'</span></span>, <span class="pl-c1">10</span>, [<span class="pl-c1">100</span> 1e<span class="pl-k">-</span><span class="pl-c1">16</span> <span class="pl-c1">1</span>], [<span class="pl-k">-</span><span class="pl-c1">1</span> <span class="pl-c1">1</span>], <span class="pl-c1">1e5</span>)</pre></div>
+
+<p>gives 10 samples from the MLP covariance function where the "bias variance" is approximately zero (basis functions are placed on the origin) and the "weight variance" is 100.</p>
+
+<p><img src="gpSampleMlpSamples10Seed100000WeightVariance100BiasVariance100Variance1.png" alt=""><img src="gpSampleMlpSamples10Seed100000WeightVariance100BiasVariance1e-16Variance1.png" alt=""></p>
+
+<p><em>Left</em> samples from an MLP style covariance function with bias and weight variances set to 100. <em>Right</em> samples from an MLP style covariance function with weight variance 100 and bias variance approximately zero.</p>
+
+<h3>
+<a id="posterior-samples" class="anchor" href="#posterior-samples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Posterior Samples</h3>
+
+<p>Gaussian processes are non-parametric models. They are specified by their covariance function and a mean function. When combined with data observations a posterior Gaussian process is induced. The demos below show samples from that posterior.</p>
+
+<div class="highlight highlight-matlab"><pre><span class="pl-k">&gt;&gt; </span>gpPosteriorSample(<span class="pl-s"><span class="pl-pds">'</span>rbf<span class="pl-pds">'</span></span>, <span class="pl-c1">5</span>, [<span class="pl-c1">1</span> <span class="pl-c1">1</span>], [<span class="pl-k">-</span><span class="pl-c1">3</span> <span class="pl-c1">3</span>], <span class="pl-c1">1e5</span>)</pre></div>
+
+<p>and</p>
+
+<div class="highlight highlight-matlab"><pre><span class="pl-k">&gt;&gt; </span>gpPosteriorSample(<span class="pl-s"><span class="pl-pds">'</span>rbf<span class="pl-pds">'</span></span>, <span class="pl-c1">5</span>, [<span class="pl-c1">16</span> <span class="pl-c1">1</span>], [<span class="pl-k">-</span><span class="pl-c1">3</span> <span class="pl-c1">3</span>], <span class="pl-c1">1e5</span>)</pre></div>
+
+<p><img src="gpPosteriorSampleRbfSamples5Seed100000InverseWidth1Variance1bw.png" alt=""><img src="gpPosteriorSampleRbfSamples5Seed100000InverseWidth16Variance1bw.png" alt=""></p>
+
+<p><em>Left</em> samples from the posterior induced by an RBF style covariance function with length scale 1 and 5 "training" data points taken from a sine wave. <em>Right</em> Similar but for a length scale of 0.25.</p>
+
+<h3>
+<a id="simple-interpolation-demo" class="anchor" href="#simple-interpolation-demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple Interpolation Demo</h3>
+
+<p>This simple demonstration plots, consecutively, an increasing number of data points, followed by an interpolated fit through the data points using a Gaussian process. This is a noiseless system, and the data is sampled from a GP with a known covariance function. The curve is then recovered with minimal uncertainty after only nine data points are included. The code is run with</p>
+
+<div class="highlight highlight-matlab"><pre><span class="pl-k">&gt;&gt; </span>demInterpolation</pre></div>
+
+<p><img src="demInterpolation3.png" alt=""><img src="demInterpolation4.png" alt="">
+ Gaussian process prediction <em>left</em> after two points with a new data point sampled <em>right</em> after the new data point is included in the prediction.
+ <img src="demInterpolation7.png" alt=""><img src="demInterpolation8.png" alt=""></p>
+
+<p>Gaussian process prediction <em>left</em> after five points with a four new data point sampled <em>right</em> after all nine data points are included.</p>
+
+<h3>
+<a id="simple-regression-demo" class="anchor" href="#simple-regression-demo" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simple Regression Demo</h3>
+
+<p>The regression demo very much follows the format of the interpolation demo. Here the difference is that the data is sampled with noise. Fitting a model with noise means that the regression will not necessarily pass right through each data point. The code is run with</p>
+
+<div class="highlight highlight-matlab"><pre><span class="pl-k">&gt;&gt; </span>demRegression</pre></div>
+
+<p><img src="demRegression3.png" alt=""><img src="demRegression4.png" alt="">
+ Gaussian process prediction <em>left</em> after two points with a new data point sampled <em>right</em> after the new data point is included in the prediction.
+ <img src="demRegression7.png" alt=""><img src="demRegression8.png" alt=""></p>
+
+<p>Gaussian process prediction <em>left</em> after five points with a four new data point sampled <em>right</em> after all nine data points are included.</p>
+
+<h3>
+<a id="optimizing-hyper-parameters" class="anchor" href="#optimizing-hyper-parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Optimizing Hyper Parameters</h3>
+
+<p>One of the advantages of Gaussian processes over pure kernel interpretations of regression is the ability to select the hyper parameters of the kernel automatically. The demo</p>
+
+<div class="highlight highlight-matlab"><pre><span class="pl-k">&gt;&gt; </span>demOptimiseGp</pre></div>
+
+<p>shows a series of plots of a Gaussian process with different length scales fitted to six data points. For each plot there is a corresponding plot of the log likelihood. The log likelihood peaks for a length scale equal to 1. This was the length scale used to generate the data.</p>
+
+<p><img src="demOptimiseGp1.png" alt=""><img src="demOptimiseGp3.png" alt=""><img src="demOptimiseGp5.png" alt="">
+<img src="demOptimiseGp7.png" alt=""><img src="demOptimiseGp9.png" alt=""><img src="demOptimiseGp11.png" alt="">
+<img src="demOptimiseGp13.png" alt=""><img src="demOptimiseGp15.png" alt=""><img src="demOptimiseGp17.png" alt=""></p>
+
+<p>From top left to bottom right, Gaussian process regression applied to the data with an increasing length scale. The length scales used were 0.05, 0.1, 0.25, 0.5, 1, 2, 4, 8 and 16.</p>
+
+<p><img src="demOptimiseGp18.png" alt=""></p>
+
+<p>Log-log plot of the log likelihood of the data against the length scales. The log likelihood is shown as a solid line. The log likelihood is made up of a data fit term (the quadratic form) shown by a dashed line and a complexity term (the log determinant) shown by a dotted line. The data fit is larger for short length scales, the complexity is larger for long length scales. The combination leads to a maximum around the true length scale value of 1.</p>
+
+<h3>
+<a id="regression-over-motion-capture-markers" class="anchor" href="#regression-over-motion-capture-markers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Regression over Motion Capture Markers</h3>
+
+<p>As a simple example of regression for real data we consider a motion capture data set. The data is <a href="http://accad.osu.edu/research/mocap/mocap_data.htm">from Ohio State University</a>. In the example script we perform Gaussian process regression with time as the input and the x,y,z position of the marker attached to the left ankle. To demonstrate the behavior of the model when the marker is lost, we remove data from This code can be run with</p>
+
+<div class="highlight highlight-matlab"><pre><span class="pl-k">&gt;&gt; </span>demStickGp1 </pre></div>
+
+<p>The code will optimize hyper parameters and show plots of the posterior process through the training data and the missing test points.</p>
+
+<p>The result of the script is given in the plot below.</p>
+
+<p><img src="demStickGp1Out1.png" alt=""> <img src="demStickGp1Out2.png" alt=""> <img src="demStickGp1Out3.png" alt=""></p>
+
+<p>Gaussian process regression through the x (left), y (middle) and z (right) position of the left ankle. Training data is shown as black spots, test points removed to simulate a lost marker are shown as circles, posterior mean prediction is shown as a black line and two standard deviations are given as grey shading.
+Notice how the error bars are tight except in the region where the training data is missing and in the region where the training data disappears.</p>
+
+<h3>
+<a id="sparse-pseudo-input-gaussian-processes" class="anchor" href="#sparse-pseudo-input-gaussian-processes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sparse Pseudo-input Gaussian Processes</h3>
+
+<p>The sparse approximation used in this toolbox is based on the Sparse Pseudo-input Gaussian Process model described by <a href="/neill-bin/publications/bibpage.cgi?keyName=Snelson:pseudo05&amp;printAbstract=1">Snelson and Ghahramani</a>. Also provided are the extensions suggested by <a href="/neill-bin/publications/bibpage.cgi?keyName=Quinonero:unifying05">Quiñonero-Candela and Rasmussen</a>. They provide a unifying terminology for describing these approximations which we shall use in what follows.</p>
+
+<p>There are three demos provided for Gaussian process regression in 1-D. They each use a different form of likelihood approximation. The first demonstration uses the "projected latent variable" approach first described by <a href="/neill-bin/publications/bibpage.cgi?keyName=Csato:sparse02&amp;printAbstract=1">Csato and Opper</a> and later used by <a href="/neill-bin/publications/bibpage.cgi?keyName=Seeger:fast03&amp;printAbstract=1">Seeger <em>et al.</em></a>. In the terminology of Quiñonero-Candela and Rasmussen (QR-terminology) this is known as the "deterministic training conditional" (DTC) approximation.</p>
+
+<p>To use this approximation the following script can be run.</p>
+
+<div class="highlight highlight-matlab"><pre><span class="pl-k">&gt;&gt; </span>demSpgp1dGp1 </pre></div>
+
+<p>The result of the script is given in the plot below.</p>
+
+<p><img src="demSpgp1dGp1.png" alt=""></p>
+
+<p>Gaussian process using the DTC approximation with nine inducing variables. Data is shown as black spots, posterior mean prediction is shown as a black line and two standard deviations are given as grey shading.
+The improved approximation suggested by Snelson and Ghahramani, in QR-terminology this is known as the fully independent training conditional (FITC). To try this approximation run the following script</p>
+
+<div class="highlight highlight-matlab"><pre><span class="pl-k">&gt;&gt; </span>demSpgp1dGp2 </pre></div>
+
+<p>The result of the script is given on the left of the plot below.</p>
+
+<p><img src="demSpgp1dGp2.png" alt=""><img src="demSpgp1dGp3.png" alt=""></p>
+
+<p><em>Left</em>: Gaussian process using the FITC approximation with nine inducing variables. Data is shown as black spots, posterior mean prediction is shown as a black line and two standard deviations are given as grey shading. <em>Right</em>: Similar but for the PITC approximation, again with nine inducing variables.
+At the <a href="http://www.dcs.shef.ac.uk/ml/gprt/">Sheffield Gaussian Process Round Table</a> Lehel Csato pointed out that the Bayesian Committee Machine of <a href="/neill-bin/publications/bibpage.cgi?group=bcm&amp;printAbstract=1">Schwaighofer and Tresp</a> can also be viewed within the same framework. This idea is formalised in <a href="/neill-bin/publications/bibpage.cgi?keyName=Quinonero:unifying05&amp;printAbstract=1">Quiñonero-Candela and Rasmussen's</a> review. This approximation is known as the "partially independent training conditional" (PITC) in QR-terminology. To try this approximation run the following script</p>
+
+<div class="highlight highlight-matlab"><pre><span class="pl-k">&gt;&gt; </span>demSpgp1dGp3</pre></div>
+
+<p>The result of the script is given on the right of the plot above.</p>
+
+<p>Finally we can compare these results to the result from the full Gaussian process on the data with the correct hyper-parameters. To do this the following script can be run.</p>
+
+<div class="highlight highlight-matlab"><pre><span class="pl-k">&gt;&gt; </span>demSpgp1dGp4</pre></div>
+
+<p>The result of the script is given in the plot below.</p>
+
+<p><img src="demSpgp1dGp4.png" alt=""></p>
+
+<p>Full Gaussian process on the toy data with the correct hyper-parameters. Data is shown as black spots, posterior mean prediction is shown as a black line and two standard deviations are given as grey shaded area.</p>
+
+<p>Page updated on Fri Jul 22 16:22:15 2011</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/lawrennd">lawrennd</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-62968536-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
